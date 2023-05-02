@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Контакти</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i>Телефон: (111) 111-1111</li>
+                        <li><i class="fas fa-envelope"></i>Email: <a href="mailto:info@yourstore.com">info@yourstore.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i>Адреса: 123 Main St. Anytown, USA</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Навігація</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Головна</a></li>
+                        <li><a href="#">Про нас</a></li>
+                        <li><a href="#">Каталог</a></li>
+                        <li><a href="#">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Підписатися</h4>
+                    <p>Підписуйтесь на нашу розсилку, щоб отримувати спеціальні пропозиції та оновлення:</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Підписатися</button>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <h4>Соцмережі</h4>
+                    <div class="social-media-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">&copy; 2023 Всі права захищені | Назва магазину</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

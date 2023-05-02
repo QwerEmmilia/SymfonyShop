@@ -2869,7 +2869,7 @@
             ],
             "authors": [
                 {
-                    "name": "K\u00e9vin Dunglas",
+                    "name": "Kévin Dunglas",
                     "email": "kevin@dunglas.fr"
                 },
                 {
@@ -3599,6 +3599,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "platform-overrides": {},
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
