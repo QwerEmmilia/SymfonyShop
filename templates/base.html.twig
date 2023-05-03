@@ -22,6 +22,10 @@
 
     <!-- Footer -->
     {% block footer %}{% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('searchBar.js') }}"></script>
+    {% endblock %}
 </div>
 </body>
 </html>
