@@ -1,0 +1,239 @@
+:root {
+    --primary-color: #fcfcfc;
+    --secondary-color: #000000;
+    --hover-color: gray;
+    --font-size: 0.9rem;
+}
+
+.header {
+    background-color: var(--primary-color);
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid rgb(217, 215, 209)
+}
+
+.header a {
+    color: var(--secondary-color);
+}
+
+.header a:hover {
+    color: var(--hover-color);
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.navbar {
+    height: 100%;
+
+}
+
+.navbar-nav .nav-link {
+    font-size: var(--font-size);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--hover-color);
+
+}.navbar-nav .nav-link:focus {
+     color: var(--hover-color);
+}
+
+.nav-item:hover > a.nav-link {
+    color: var(--hover-color);
+}
+
+.ul2 {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.ul2 li {
+    margin-left: 15px;
+}
+
+.ul2 li i {
+    font-size: 17px;
+}
+
+
+.navbar-brand:hover {
+    /*text-decoration: none;*/
+}
+
+.nav-item ul a {
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+.sub-menu a {
+    flex-direction: column;
+}
+
+.sub-menu a img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.sub-menu {
+    position: fixed;
+    background-color: white;
+    border: none;
+    display: none;
+    z-index: 1;
+    width: 100vw;
+    left: 0;
+    top: 40px;
+
+}
+
+.sub-menu-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.nav-item:hover .sub-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 5s;
+}
+
+.navbar-nav .sub-menu a {
+    display: flex;
+    color: black;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navbar-nav .sub-menu a {
+    width: calc(20% - 10px);
+    text-align: center;
+}
+
+.nav-item:hover .sub-menu > * {
+    margin: 10px;
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='var(--secondary-color)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.search-li {
+    border-bottom: 1px solid rgb(200, 199, 199);
+}
+
+.search-li:hover {
+    border-bottom: 1px solid black;
+}
+
+.search-span {
+    margin-left: 10px;
+    margin-right: 90px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.search-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background-color: #fff;
+    z-index: 9999;
+    transition: top 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.search-box form {
+    margin-left: 7%;
+}
+
+.search-box input[type="text"] {
+    width: 90%;
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.search-box button[type="submit"] {
+    background-color: rgba(0, 0, 0, 0);
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.navbar-nav .search-li {
+    position: relative;
+}
+
+.navbar-nav .search-li .search-overlay {
+    display: block;
+}
+
+.search-box input[type="text"]:focus {
+    outline: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-heading {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    margin-left: 16%;
+    align-self: flex-start;
+}
+
