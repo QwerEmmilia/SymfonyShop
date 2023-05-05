@@ -1,43 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block header %}
+
     <header class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="d-flex align-items-center mr-auto">
-                    <a class="navbar-brand" href="#">ЛОГО</a>
+                    <a class="navbar-brand" href="#">
+                        <svg height="30" width="100">
+                            <text class="text-logo" x="30" y="21" fill="black">LOGO</text>
+                        </svg>
+                    </a>
                 </div>
-                <<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Для нього <span class="sr-only">(current)</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Категорія 1</a></li>
-                                <li><a href="#">Категорія 2</a></li>
-                                <li><a href="#">Категорія 3</a></li>
-                                <li><a href="#">Категорія 4</a></li>
-                                <li><a href="#">Категорія 5</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Для неї</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Категорія 1</a></li>
-                                <li><a href="#">Категорія 1</a></li>
-                                <li><a href="#">Категорія 1</a></li>
-                                <li><a href="#">Категорія 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
+                    <div class="navbar-nav">
+                        <div class="nav-item">
+                            <a class="nav-link" href="#">Для нього <i class="fa fa-angle-down"></i></a>
+                            <div class="sub-menu" aria-labelledby="navbarDropdownMenuLink1">
+                                <a class="sub-menu-link" href="#">ТОЛСТОВКА,КОФТИ<img src="{{ asset('chol-1.jpg') }}" alt="ТОЛСТОВКА, КОФТИ"></a>
+                                <a class="sub-menu-link" href="#">ФУТБОЛКА<img src="{{ asset('1fytbolka.jpeg') }}" alt="ФУТБОЛКА"></a>
+                                <a class="sub-menu-link" href="#">КУРТКА<img src="{{ asset('rkurtki.jpg') }}" alt="КУРТКА"></a>
+                                <a class="sub-menu-link" href="#">ШТАНИ<img src="{{ asset('kat-dzhinsi.jpg') }}" alt="ШТАНИ"></a>
+                            </div>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="#">Для неї <i class="fa fa-angle-down"></i></a>
+                            <div class="sub-menu" aria-labelledby="navbarDropdownMenuLink1">
+                                <a class="sub-menu-link" href="#">ТОЛСТОВКА,КОФТИ<img src="{{ asset('740-540-zhin-sport-kostyumi.jpg') }}" alt="ТОЛСТОВКА,КОФТИ"></a>
+                                <a class="sub-menu-link" href="#">ФУТБОЛКА, БОДІ<img src="{{ asset('koft1.jpg') }}" alt="ФУТБОЛКА, БОДІ"></a>
+                                <a class="sub-menu-link" href="#">КУРТКА<img src="{{ asset('jacket-15.jpg') }}" alt="КУРТКА"></a>
+                                <a class="sub-menu-link" href="#">ШТАНИ<img src="{{ asset('stn.jpg') }}" alt="ШТАНИ"></a>
+                            </div>
+                        </div>
+                        <div class="nav-item">
                             <a class="nav-link" href="#">Про нас</a>
-                        </li>
-                        <li class="nav-item">
+                        </div>
+                        <div class="nav-item">
                             <a class="nav-link" href="#">Оплата та доставка</a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                     <ul class="navbar-nav ml-auto ul2">
                         <li class="nav-item ml-auto">
                             <a class="nav-link" href="#">
@@ -47,18 +51,18 @@
                         <li class="nav-item ml-3">
                             <a class="nav-link" href="#">
                                 <i class="far fa-user"></i>
-                                <span class="icon-text">Увійти</span>
+                                <span class="icon-text"></span>
                             </a>
                         </li>
                         <li class="nav-item ml-3">
-                            <a class="nav-link" href="#">
+                            <a class="nav_link" href="#">
                                 <i class="far fa-heart"></i>
                             </a>
                         </li>
                         <li class="nav-item ml-3">
                             <a class="nav-link" href="#">
                                 <i class="fas fa-shopping-bag"></i>
-                                <span class="icon-text">Кошик (0)</span>
+                                <span class="icon-text">(0)</span>
                             </a>
                         </li>
                     </ul>

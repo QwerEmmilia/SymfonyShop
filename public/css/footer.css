@@ -1,7 +1,7 @@
 /* Стилі футера */
 .footer {
-    background-color: black;
-    color: #fff;
+    background-color: #fcfcfc;
+    color: #000000;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -25,7 +25,7 @@
 }
 
 .footer ul li a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .footer hr {
-    border-top: 1px solid #fff;
+    border-top: 1px solid #000000;
     margin-top: 50px;
     margin-bottom: 50px;
 }
