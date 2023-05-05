@@ -32,6 +32,7 @@
 }
 .navbar {
     height: 100%;
+
 }
 
 .navbar-nav .nav-link {
@@ -41,6 +42,9 @@
 }
 .navbar-nav .nav-link:hover {
     color: var(--hover-color);
+
+}.navbar-nav .nav-link:focus {
+     color: var(--hover-color);
 }
 
 .nav-item:hover > a.nav-link {
@@ -63,7 +67,7 @@
 
 
 .navbar-brand:hover {
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 .nav-item ul a {
@@ -146,5 +150,90 @@
     vertical-align: middle;
     content: "";
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='var(--secondary-color)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.search-li {
+    border-bottom: 1px solid rgb(200, 199, 199);
+}
+
+.search-li:hover {
+    border-bottom: 1px solid black;
+}
+
+.search-span {
+    margin-left: 10px;
+    margin-right: 90px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.search-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background-color: #fff;
+    z-index: 9999;
+    transition: top 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.search-box form {
+    margin-left: 7%;
+}
+
+.search-box input[type="text"] {
+    width: 90%;
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.search-box button[type="submit"] {
+    background-color: rgba(0, 0, 0, 0);
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.navbar-nav .search-li {
+    position: relative;
+}
+
+.navbar-nav .search-li .search-overlay {
+    display: block;
+}
+
+.search-box input[type="text"]:focus {
+    outline: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-heading {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    margin-left: 16%;
+    align-self: flex-start;
 }
 
