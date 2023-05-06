@@ -49,6 +49,21 @@
     border-radius: 0;
 }
 
+.btn-footer {
+    border-radius: 0;
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-footer:hover {
+    background-color: #286090;
+}
+
+
 .social-media-icons {
     display: flex;
     justify-content: flex-start;

@@ -5,10 +5,17 @@
 {% endblock %}
 
 {% block body %}
+    <div class="slider">
+        <div id="slider">
+            <img src="{{ asset('img/49f1d2f4d1b54c1c8ed80614086e9133-resize_crop_1Xquality_100Xallow_enlarge_0Xw_1200Xh_630.jpg') }}" alt="Slide 1">
+            <img src="{{ asset('img/theCOATfw22_1_web.jpg') }}" alt="Slide 2">
+            <button class="btn prev-btn"></button>
+            <button class="btn next-btn"></button>
+            <button class="subscribe-btn-slider">Подивитись новинки</button>
+        </div>
+    </div>
 
-    <div style="width: 100%; height: 500px; background-color: blue;"></div>
-
-
+    <script src="{{ asset('js/sliderMainPage.js') }}"></script>
 {% endblock %}
 
 {% block footer %}
