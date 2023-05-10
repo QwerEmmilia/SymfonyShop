@@ -1,0 +1,36 @@
+{% block goods %}
+<div class="product-grid" id="product-grid">
+    {% for good in goods %}
+        {% if loop.index <= 8 %}
+            <div class="product-item">
+                <img src="{{ good.image }}" alt="Product 1">
+                <div class="name-product">{{ good.name }}</div>
+                <div class="rating">
+                    {% if good.rating is not empty %}
+                        {{ good.rating }}
+                    {% else %}
+                        Написати відгук→
+                    {% endif %}
+                </div>
+                <p class="price">${{ good.price }}</p>
+                <div class="sizes">
+                    <button class="size-button">S</button>
+                    <button class="size-button">M</button>
+                    <button class="size-button">L</button>
+                    <button class="size-button">XL</button>
+                </div>
+                <div class="fbh">
+                    <div>
+                        <button class="buy-button"><i class="bx bx-shopping-bag sb-fbh"></i>Buy Now</button>
+                    </div>
+                    <div class="like-goods">
+                        <a class="heart-icon-product" id="heart-icon">
+                            <i class='bx bx-heart'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -15,36 +15,20 @@
         </div>
         <div class="news-section">
             <h2 class="news-title">НОВИНКИ</h2>
-            <div class="product-grid">
-                <div class="product-item">
-                    <img src="{{ asset('img/1-800x1024.jpg') }}" alt="Product 1">
-                    <div class="name-product">Product</div>
-                    <div class="rating">Написати відгук→</div>
-                    <p class="price">$19.99</p>
-                    <div class="sizes">
-                        <button class="size-button">S</button>
-                        <button class="size-button">M</button>
-                        <button class="size-button">L</button>
-                        <button class="size-button">XL</button>
-                    </div>
-                    <div class="fbh">
-                        <div>
-                    <button class="buy-button"><i class="bx bx-shopping-bag sb-fbh"></i>Buy Now</button>
-                        </div>
-                            <div class="like-goods">
-                    <a class="heart-icon-product" id="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </a>
-                    </div>
-                    </div>
-                </div>
-            </div>
+            {% block goods %}
+                {% include 'shop/goods_block.html.twig' %}
+            {% endblock %}
         </div>
     </div>
 
 
     <script src="{{ asset('js/sliderMainPage.js') }}"></script>
-    <script src="{{ asset('js/heart.js') }}"></script>
+    <script src="{{ asset('js/productItem.js') }}"></script>
+    <script>
+    </script>
+
+
+
 {% endblock %}
 
 {% block footer %}
