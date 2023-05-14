@@ -7,29 +7,119 @@
 {% block body %}
     <div class="main">
         <div id="slider">
-            <img src="{{ asset('img/49f1d2f4d1b54c1c8ed80614086e9133-resize_crop_1Xquality_100Xallow_enlarge_0Xw_1200Xh_630.jpg') }}" alt="Slide 1">
-            <img src="{{ asset('img/theCOATfw22_1_web.jpg') }}" alt="Slide 2">
+            <img class="imgSM-1" src="{{ asset('img/241810589_1259641347789699_7031140725086112762_n.jpg') }}" alt="Slide 1">
+            <img class="imgSM-2" src="{{ asset('img/241969926_1259641327789701_2973390681072688308_n.jpg') }}" alt="Slide 2">
             <button class="btn prev-btn"></button>
             <button class="btn next-btn"></button>
             <button class="subscribe-btn-slider">Подивитись новинки</button>
         </div>
-        <div class="news-section">
-            <h2 class="news-title">НОВИНКИ</h2>
-            {% block goods %}
-                {% include 'shop/goods_block.html.twig' %}
-            {% endblock %}
+        <div class="news-goods-block">
+            <a href="#" class="news-block-link news-block-women">
+                <div class="news-block">
+                    <img src="{{ asset('img/UA-BOX2-20230419.avif') }}" alt="Novelties for Women">
+                </div>
+            </a>
+            <a class="news-block-link">
+                <div class="news-block">
+                    <img src="{{ asset('img/UA-BOX1-20230419.avif') }}" alt="">
+                    <a><div class="text-overlay-left">Для неї</div></a>
+                    <a><div class="text-overlay-right">Для нього</div></a>
+                </div>
+            </a>
+            <a href="#" class="news-block-link news-block-men">
+                <div class="news-block ">
+                    <img src="{{ asset('img/UA-BOX3-20230419.avif') }}" alt="Novelties for Men">
+                </div>
+            </a>
         </div>
+        <div class="container">
+                <h5 class="new-tmp">Новинки</h5>
+                <div id="carouselSlide" class="carousel">
+                    {% for good in goods|slice(-10, none) %}
+                        <a href="#">
+                    <div class="carousel-slide" >
+                            <div class="product-block">
+                                <img src="{{ good.image }}" alt="New Goods">
+                                <div class="name-product">{{ good.name }}</div>
+                                <p class="price">${{ good.price }}</p>
+                            </div>
+                    </div>
+                        </a>
+                    {% endfor %}
+                    <button class="custom-prev-btn"><i class='bx bx-chevron-right bx-flip-horizontal' ></i></button>
+                    <button class="custom-next-btn"><i class='bx bx-chevron-right bx-flip-vertical' ></i></button>
+                </div>
+        </div>
+        <div class="container mt-3">
+                <h5 class="new-tmp">Кращі товари</h5>
+                <div id="carouselSlideTop" class="carousel">
+                    {% for good in goods|sort((a, b) => b.rating <=> a.rating)|slice(0, 10) %}
+                        <a href="#">
+                            <div class="carousel-slide">
+                                <div class="product-block">
+                                    <img src="{{ good.image }}" alt="Top Rated Goods">
+                                    <div class="name-product">{{ good.name }}</div>
+                                    <p class="rating">{{ good.rating }}</p>
+                                    <p class="price">${{ good.price }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    <button class="custom-prev-btn"><i class='bx bx-chevron-right bx-flip-horizontal'></i></button>
+                    <button class="custom-next-btn"><i class='bx bx-chevron-right bx-flip-vertical'></i></button>
+                </div>
+        </div>
+        <div class="container mt-3 mfg">
+            <div class="newsletter-block">
+                <div class="newsletter-content">
+                    <h1 class="newsletter-title">Підпишіться на нашу розсилку</h1>
+                    <h5 class="newsletter-text">Підпишіться на нашу розсилку, щоб отримати спеціальні пропозиції та оновлення про нові товари</h5>
+                    <form class="newsletter-form" action="/subscribe" method="post">
+                        <div class="newsletter-category">
+                            <span>Оберіть категорію, яка вас цікавить:</span>
+                            <label>
+                                <input type="checkbox" name="category[]" value="men">
+                                Чоловіки
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category[]" value="women">
+                                Жінки
+                            </label>
+                        </div>
+                        <p>Можна вибрати обидві категорії</p>
+                        <input type="email" class="newsletter-input" name="email" placeholder="Введіть вашу електронну адресу" required>
+                        <button type="submit" class="newsletter-submit">Підписатися</button>
+                        <label class="newsletter-terms mt-2">
+                            <input type="checkbox" class="m-lg-1" name="terms" required>
+                            Я приймаю правила та умови розсилки <a href="#">Політика конфіденційності</a>
+                        </label>
+                    </form>
+                </div>
+                <div class="newsletter-image">
+                    <img src="{{ asset('img/Blank 3 Grids Collage.png') }}" alt="Newsletter Image">
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
 
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
+    <script src="{{ asset('js/slick-1.8.1/slick/slick.min.js') }}"></script>
     <script src="{{ asset('js/sliderMainPage.js') }}"></script>
-    <script src="{{ asset('js/productItem.js') }}"></script>
-    <script>
-    </script>
-
-
+    <script src="{{ asset('js/slickTrack.js') }}"></script>
 
 {% endblock %}
+
+
 
 {% block footer %}
     {% include 'shop/footer.html.twig' %}

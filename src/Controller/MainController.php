@@ -30,17 +30,17 @@ class MainController extends AbstractController
         $goods1->setName('Худі Husll under oversize');
         $goods1->setDescription('Теж норм');
         $goods1->setPrice(80.99);
-        $goods1->setRating(1);
-        $goods1->setSizes(1);
-        $goods1->setImage('https://husll.com.ua/image/cache/catalog/products/PKY0537/86-800x1024.jpg');
+        $goods1->setRating(4);
+        $goods1->setSizes(2);
+        $goods1->setImage('https://husll.com.ua/image/cache/catalog/products/PKY0529/3-800x1024.jpg');
 
         $goods2 = new Goods();
         $goods2->setName('Худі Husll girl & logo oversize');
         $goods2->setDescription('Норм худі');
         $goods2->setPrice(99.99);
-        $goods2->setRating(1);
+        $goods2->setRating(1.5);
         $goods2->setSizes(1);
-        $goods2->setImage('https://husll.com.ua/image/cache/catalog/products/PKY0537/86-800x1024.jpg');
+        $goods2->setImage('https://husll.com.ua/image/cache/catalog/products/PKY0536/85-800x1024.jpg');
 
 //        $this->entityManager->persist($goods1);
 //        $this->entityManager->persist($goods2);

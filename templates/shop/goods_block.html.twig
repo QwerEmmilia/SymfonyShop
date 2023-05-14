@@ -1,7 +1,6 @@
 {% block goods %}
 <div class="product-grid" id="product-grid">
     {% for good in goods %}
-        {% if loop.index <= 8 %}
             <div class="product-item">
                 <img src="{{ good.image }}" alt="Product 1">
                 <div class="name-product">{{ good.name }}</div>
@@ -30,7 +29,6 @@
                     </div>
                 </div>
             </div>
-        {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
