@@ -36,7 +36,7 @@
                 <h5 class="new-tmp">Новинки</h5>
                 <div id="carouselSlide" class="carousel">
                     {% for good in goods|slice(-10, none) %}
-                        <a href="#">
+                        <a href="{{ path('goodsPage', {'id': good.id}) }}">
                     <div class="carousel-slide" >
                             <div class="product-block">
                                 <img src="{{ good.image }}" alt="New Goods">
@@ -54,7 +54,7 @@
                 <h5 class="new-tmp">Кращі товари</h5>
                 <div id="carouselSlideTop" class="carousel">
                     {% for good in goods|sort((a, b) => b.rating <=> a.rating)|slice(0, 10) %}
-                        <a href="#">
+                        <a href="{{ path('goodsPage', {'id': good.id}) }}">
                             <div class="carousel-slide">
                                 <div class="product-block">
                                     <img src="{{ good.image }}" alt="Top Rated Goods">
@@ -69,7 +69,7 @@
                     <button class="custom-next-btn"><i class='bx bx-chevron-right bx-flip-vertical'></i></button>
                 </div>
         </div>
-        <div class="container mt-3 mfg">
+        <div class="container mt-5 mfg">
             <div class="newsletter-block">
                 <div class="newsletter-content">
                     <h1 class="newsletter-title">Підпишіться на нашу розсилку</h1>

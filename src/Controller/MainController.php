@@ -20,34 +20,28 @@ class MainController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function homepage(): Response
     {
-        // Отримання всіх товарів з бази даних
         $goods = $this->entityManager->getRepository(Goods::class)->findAll();
-
-        // Передача отриманих даних у шаблон
-
-        // Створення нового товару
-        $goods1 = new Goods();
-        $goods1->setName('Худі Husll under oversize');
-        $goods1->setDescription('Теж норм');
-        $goods1->setPrice(80.99);
-        $goods1->setRating(4);
-        $goods1->setSizes(2);
-        $goods1->setImage('https://husll.com.ua/image/cache/catalog/products/PKY0529/3-800x1024.jpg');
-
-        $goods2 = new Goods();
-        $goods2->setName('Худі Husll girl & logo oversize');
-        $goods2->setDescription('Норм худі');
-        $goods2->setPrice(99.99);
-        $goods2->setRating(1.5);
-        $goods2->setSizes(1);
-        $goods2->setImage('https://husll.com.ua/image/cache/catalog/products/PKY0536/85-800x1024.jpg');
-
-//        $this->entityManager->persist($goods1);
-//        $this->entityManager->persist($goods2);
-//        $this->entityManager->flush();
 
         return $this->render('shop/main_page.html.twig', [
             'goods' => $goods,
         ]);
     }
+
+    #[Route('/goodsPage/{id}', name: 'goodsPage')]
+    public function goodsPage($id): Response
+    {
+        $goods = $this->entityManager->getRepository(Goods::class)->find($id);
+
+        $goodsBD = $this->entityManager->getRepository(Goods::class)->findBy([], ['id' => 'DESC'], 6);;
+
+        return $this->render('shop/goods_page.html.twig', [
+            'goods' => $goods,
+            'goodsBD' => $goodsBD,
+        ]);
+    }
+
+//
 }
+
+
+
