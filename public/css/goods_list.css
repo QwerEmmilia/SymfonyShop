@@ -386,9 +386,3 @@
     color: black;
 }
 
-
-#goods-container {
-    height: 800px; /* Встановіть висоту, яка показує 20 блоків товарів */
-    overflow-y: scroll;
-}
-

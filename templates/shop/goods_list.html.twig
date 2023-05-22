@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="goods-container">
+                <div id="goods-container" class="goods-container">
                     <div class="goods-grid" id="goods-grid">
                         {% for good in goods %}
                             <div class="good-card" data-id="{{ good.id }}">
@@ -63,10 +63,12 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <div id="load-more">
-                        <button id="load-more-button" onclick="loadMoreGoods()">Показати ще</button>
-                    </div>
                 </div>
+                    <div id="load-more">
+                        {% if goods|length > 19 %}
+                            <button id="load-more-button">Показати ще</button>
+                        {% endif %}
+                    </div>
             </div>
         </div>
     </div>
@@ -75,7 +77,34 @@
     <script src="{{ asset('js/listGoodsSort.js') }}"></script>
     <script src="{{ asset('js/nextGoods.js') }}"></script>
 
+    <script>
+        var offset = {{ initialLimit }};
+        var limit = 12;
+        var sortOption = '{{ app.request.query.get('sort', 'default') }}';
+        var minPrice = '{{ app.request.query.get('min-price') }}';
+        var maxPrice = '{{ app.request.query.get('max-price') }}';
 
+        document.getElementById('load-more-button').addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            var url = '/load-more?offset=' + offset + '&limit=' + limit + '&sort=' + sortOption + '&min-price=' + minPrice + '&max-price=' + maxPrice;
+
+            xhr.open('GET', url, true);
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = xhr.responseText;
+                    var goodsContainer = document.getElementById('goods-container');
+                    goodsContainer.innerHTML += response;
+                    offset += limit;
+                    {#if (offset >= {{ goods|length }}) {#}
+                    {#    document.getElementById('load-more-button').style.display = 'none';#}
+                    {#}#}
+                }
+            };
+
+            xhr.send();
+        });
+    </script>
 {% endblock %}
 
 {% block footer %}

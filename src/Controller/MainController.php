@@ -42,6 +42,8 @@ class MainController extends AbstractController
     #[Route('/list', name: 'goodsList')]
     public function goodsList(Request $request): Response
     {
+        $initialLimit = 20; // Початкова кількість товарів на сторінці
+        $limit = $request->query->get('limit', $initialLimit);
         $sortOption = $request->query->get('sort', 'default');
         $minPrice = $request->query->get('min-price');
         $maxPrice = $request->query->get('max-price');
@@ -63,19 +65,66 @@ class MainController extends AbstractController
                 ->setParameter('maxPrice', $maxPrice);
         }
 
-        // Отримуємо товари з бази даних з врахуванням сортування
+        // Отримуємо товари з бази даних з врахуванням сортування та обмеженнями
         if ($sortOption === 'price-asc') {
             $queryBuilder->orderBy('g.price', 'ASC');
         } elseif ($sortOption === 'price-desc') {
             $queryBuilder->orderBy('g.price', 'DESC');
         }
 
+        $queryBuilder->setMaxResults($limit);
+
         $goods = $queryBuilder->getQuery()->getResult();
 
         return $this->render('shop/goods_list.html.twig', [
             'goods' => $goods,
+            'initialLimit' => $initialLimit, // Передаємо початкову кількість товарів
         ]);
     }
+
+    #[Route('/load-more', name: 'loadMore')]
+    public function loadMore(Request $request): Response
+    {
+        $offset = $request->query->get('offset', 0);
+        $limit = $request->query->get('limit', 12);
+        $sortOption = $request->query->get('sort', 'default');
+        $minPrice = $request->query->get('min-price');
+        $maxPrice = $request->query->get('max-price');
+
+        $repository = $this->entityManager->getRepository(Goods::class);
+        $queryBuilder = $repository->createQueryBuilder('g');
+
+        // Додайте фільтри для мінімальної та максимальної ціни
+        if ($minPrice && $maxPrice) {
+            $queryBuilder->andWhere('g.price >= :minPrice')
+                ->andWhere('g.price <= :maxPrice')
+                ->setParameter('minPrice', $minPrice)
+                ->setParameter('maxPrice', $maxPrice);
+        } elseif ($minPrice) {
+            $queryBuilder->andWhere('g.price >= :minPrice')
+                ->setParameter('minPrice', $minPrice);
+        } elseif ($maxPrice) {
+            $queryBuilder->andWhere('g.price <= :maxPrice')
+                ->setParameter('maxPrice', $maxPrice);
+        }
+
+        // Отримуємо товари з бази даних з врахуванням сортування та обмеженнями
+        if ($sortOption === 'price-asc') {
+            $queryBuilder->orderBy('g.price', 'ASC');
+        } elseif ($sortOption === 'price-desc') {
+            $queryBuilder->orderBy('g.price', 'DESC');
+        }
+
+        $queryBuilder->setFirstResult($offset)
+            ->setMaxResults($limit);
+
+        $goods = $queryBuilder->getQuery()->getResult();
+
+        return $this->render('shop/_goods_list.html.twig', [
+            'goods' => $goods,
+        ]);
+    }
+
 }
 
 
