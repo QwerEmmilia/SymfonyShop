@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Goods;
-
+use Symfony\Component\HttpFoundation\Request;
 class MainController extends AbstractController
 {
     private $entityManager;
@@ -39,9 +39,43 @@ class MainController extends AbstractController
             'goodsBD' => $goodsBD,
         ]);
     }
+    #[Route('/list', name: 'goodsList')]
+    public function goodsList(Request $request): Response
+    {
+        $sortOption = $request->query->get('sort', 'default');
+        $minPrice = $request->query->get('min-price');
+        $maxPrice = $request->query->get('max-price');
 
-//
+        $repository = $this->entityManager->getRepository(Goods::class);
+        $queryBuilder = $repository->createQueryBuilder('g');
+
+        // Додайте фільтри для мінімальної та максимальної ціни
+        if ($minPrice && $maxPrice) {
+            $queryBuilder->andWhere('g.price >= :minPrice')
+                ->andWhere('g.price <= :maxPrice')
+                ->setParameter('minPrice', $minPrice)
+                ->setParameter('maxPrice', $maxPrice);
+        } elseif ($minPrice) {
+            $queryBuilder->andWhere('g.price >= :minPrice')
+                ->setParameter('minPrice', $minPrice);
+        } elseif ($maxPrice) {
+            $queryBuilder->andWhere('g.price <= :maxPrice')
+                ->setParameter('maxPrice', $maxPrice);
+        }
+
+        // Отримуємо товари з бази даних з врахуванням сортування
+        if ($sortOption === 'price-asc') {
+            $queryBuilder->orderBy('g.price', 'ASC');
+        } elseif ($sortOption === 'price-desc') {
+            $queryBuilder->orderBy('g.price', 'DESC');
+        }
+
+        $goods = $queryBuilder->getQuery()->getResult();
+
+        return $this->render('shop/goods_list.html.twig', [
+            'goods' => $goods,
+        ]);
+    }
 }
-
 
 

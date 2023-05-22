@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {% include 'shop/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <h3 class="title-goods">Одяг</h3>
+    <div class="container-fluid">
+        <button id="toggle-filters">Фільтри</button>
+        <div class="sidebar" id="sidebar">
+            <div class="filters" id="filters">
+                <div class="filter-group">
+                    <ul>
+                        <li>Футболки</li>
+                        <li>Штани</li>
+                        <li>Шорти</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div class="goods">
+                <div class="sorting">
+                    <div class="sort-price">
+                        <div class="sort">
+                            <label class="sort-label" for="sort-select" onclick="toggleSortOptions()">Сортувати за:</label>
+                            <div class="sort-options" id="sort-options">
+                                <div class="sort-option">
+                                    <input type="radio" id="sort-default" name="sort-option" value="default">
+                                    <label for="sort-default">За замовчуванням</label>
+                                </div>
+                                <div class="sort-option">
+                                    <input type="radio" id="sort-asc" name="sort-option" value="price-asc" >
+                                    <label for="sort-asc">Зростанням ціни</label>
+                                </div>
+                                <div class="sort-option">
+                                    <input type="radio" id="sort-desc" name="sort-option" value="price-desc" >
+                                    <label for="sort-desc">Спаданням ціни</label>
+                                </div>
+                                <button class="apply-button" onclick="applySorting()">Застосувати</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sort-price">
+                        <div class="sort">
+                            <label class="sort-label" id="price-toggle" onclick="togglePriceOptions()">Ціна</label>
+                        </div>
+                        <div class="price-options" id="price-options">
+                            <input type="text" name="min-price" id="min-price-input" placeholder="Від" value="{{ app.request.query.get('min-price') }}">
+                            <input type="text" name="max-price" id="max-price-input" placeholder="До" value="{{ app.request.query.get('max-price') }}">
+                            <button class="price-button" onclick="applySorting()">Показати</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-container">
+                    <div class="goods-grid" id="goods-grid">
+                        {% for good in goods %}
+                            <div class="good-card" data-id="{{ good.id }}">
+                                <img src="{{ good.image }}" alt="{{ good.name }}">
+                                <h4>{{ good.name }}</h4>
+                                <p class="price">{{ good.price }} грн</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div id="load-more">
+                        <button id="load-more-button" onclick="loadMoreGoods()">Показати ще</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('js/menuFilter.js') }}"></script>
+    <script src="{{ asset('js/listGoodsSort.js') }}"></script>
+    <script src="{{ asset('js/nextGoods.js') }}"></script>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'shop/footer.html.twig' %}
+{% endblock %}
