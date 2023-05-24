@@ -1,0 +1,121 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.product-item img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-item span {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.product-item p {
+    font-size: 20px;
+    color: #666666;
+    margin-bottom: 5px;
+}
+
+.product-item .price {
+    color: rgba(246, 22, 22, 0.8);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.product-item .rating {
+    color: #414141;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.product-item .sizes {
+    display: flex;
+}
+
+.size-button {
+    font-size: 12px;
+    padding: 1px 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #000000;
+    background: none;
+    font-weight: 500;
+
+}
+
+.fbh {
+    display: flex;
+}
+.fbh .like-goods {
+    margin-top: 15px;
+}
+
+.product-item .buy-button {
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    border: 1px solid #000;
+    padding: 6px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    background: linear-gradient(to right, black 0%, black 50%, transparent 50%, transparent 100%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: background-position 0.3s, color 0.3s;
+}
+.buy-button:hover {
+    background-position: left bottom;
+    color: white;
+}
+
+.sb-fbh {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.heart-icon-product:hover {
+    cursor: pointer;
+}
+
+.product-item .heart-icon-product {
+    color: black;
+    margin-left: 5px;
+    text-align: center;
+}
+.product-item .heart-icon-product i{
+    font-size: 25px;
+
+}
+
+.show-all-button {
+    display: inline-block;
+    margin-top: 10px;
+    border: black solid 1px;
+}
+
+.show-all-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+

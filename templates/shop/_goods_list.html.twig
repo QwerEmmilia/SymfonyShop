@@ -1,0 +1,10 @@
+    <div class="goods-grid" id="goods-grid">
+        {% for good in goods %}
+            <div class="good-card" data-id="{{ good.id }}">
+                <img src="{{ good.image }}" alt="{{ good.name }}">
+                <h4>{{ good.name }}</h4>
+                <p class="price">{{ good.price }} грн</p>
+            </div>
+        {% endfor %}
+    </div>
+

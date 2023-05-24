@@ -6,7 +6,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="d-flex align-items-center mr-auto">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                         <svg height="30" width="100">
                             <text class="text-logo" x="30" y="21" fill="black">LOGO</text>
                         </svg>
@@ -20,19 +20,19 @@
                         <div class="nav-item">
                             <a class="nav-link" href="#">Для нього <i class="fa fa-angle-down"></i></a>
                             <div class="sub-menu" aria-labelledby="navbarDropdownMenuLink1">
-                                <a class="sub-menu-link" href="#">ТОЛСТОВКА,КОФТИ<img src="{{ asset('chol-1.jpg') }}" alt="ТОЛСТОВКА, КОФТИ"></a>
-                                <a class="sub-menu-link" href="#">ФУТБОЛКА<img src="{{ asset('1fytbolka.jpeg') }}" alt="ФУТБОЛКА"></a>
-                                <a class="sub-menu-link" href="#">КУРТКА<img src="{{ asset('rkurtki.jpg') }}" alt="КУРТКА"></a>
-                                <a class="sub-menu-link" href="#">ШТАНИ<img src="{{ asset('kat-dzhinsi.jpg') }}" alt="ШТАНИ"></a>
+                                <a class="sub-menu-link" href="#">ТОЛСТОВКА,КОФТИ<img src="{{ asset('img/chol-1.jpg') }}" alt="ТОЛСТОВКА, КОФТИ"></a>
+                                <a class="sub-menu-link" href="#">ФУТБОЛКА<img src="{{ asset('img/1fytbolka.jpeg') }}" alt="ФУТБОЛКА"></a>
+                                <a class="sub-menu-link" href="#">КУРТКА<img src="{{ asset('img/rkurtki.jpg') }}" alt="КУРТКА"></a>
+                                <a class="sub-menu-link" href="#">ШТАНИ<img src="{{ asset('img/kat-dzhinsi.jpg') }}" alt="ШТАНИ"></a>
                             </div>
                         </div>
                         <div class="nav-item">
                             <a class="nav-link" href="#">Для неї <i class="fa fa-angle-down"></i></a>
                             <div class="sub-menu" aria-labelledby="navbarDropdownMenuLink1">
-                                <a class="sub-menu-link" href="#">ТОЛСТОВКА,КОФТИ<img src="{{ asset('740-540-zhin-sport-kostyumi.jpg') }}" alt="ТОЛСТОВКА,КОФТИ"></a>
-                                <a class="sub-menu-link" href="#">ФУТБОЛКА, БОДІ<img src="{{ asset('koft1.jpg') }}" alt="ФУТБОЛКА, БОДІ"></a>
-                                <a class="sub-menu-link" href="#">КУРТКА<img src="{{ asset('jacket-15.jpg') }}" alt="КУРТКА"></a>
-                                <a class="sub-menu-link" href="#">ШТАНИ<img src="{{ asset('stn.jpg') }}" alt="ШТАНИ"></a>
+                                <a class="sub-menu-link" href="#">ТОЛСТОВКА,КОФТИ<img src="{{ asset('img/740-540-zhin-sport-kostyumi.jpg') }}" alt="ТОЛСТОВКА,КОФТИ"></a>
+                                <a class="sub-menu-link" href="#">ФУТБОЛКА, БОДІ<img src="{{ asset('img/koft1.jpg') }}" alt="ФУТБОЛКА, БОДІ"></a>
+                                <a class="sub-menu-link" href="#">КУРТКА<img src="{{ asset('img/jacket-15.jpg') }}" alt="КУРТКА"></a>
+                                <a class="sub-menu-link" href="#">ШТАНИ<img src="{{ asset('img/stn.jpg') }}" alt="ШТАНИ"></a>
                             </div>
                         </div>
                         <div class="nav-item">
@@ -56,24 +56,18 @@
                     <ul class="navbar-nav ml-auto ul2">
                         <li class="nav-item ml-auto search-li">
                             <a class="nav-link" href="#">
-                                <i class="fas fa-search"></i>
+                                <i class="fa fa-search"></i>
                                 <span class="search-span">Шукати</span>
                             </a>
                         </li>
                         <li class="nav-item ml-3">
                             <a class="nav-link" href="#">
-                                <i class="far fa-user"></i>
+                                <i class='bx bx-user'></i>
                             </a>
                         </li>
                         <li class="nav-item ml-3">
-                            <a class="nav-link" href="#">
-                                <i class="far fa-heart"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item ml-3">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-shopping-bag"></i>
-                                <span class="icon-text">(0)</span>
+                            <a class="nav-link" href="/cart">
+                                <i class="bx bx-shopping-bag"></i>
                             </a>
                         </li>
                     </ul>
@@ -81,4 +75,6 @@
             </nav>
         </div>
     </header>
+
+    <script src="{{ asset('js/searchBar.js') }}"></script>
 {% endblock %}

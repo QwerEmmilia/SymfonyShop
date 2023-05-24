@@ -1,9 +1,10 @@
 /* Стилі футера */
 .footer {
-    background-color: #fcfcfc;
+    background-color: rgba(255, 255, 255, 0.17);
     color: #000000;
     padding-top: 50px;
     padding-bottom: 50px;
+    border-top: 5px solid #f7daae;
 }
 
 .footer h4 {
@@ -49,9 +50,28 @@
     border-radius: 0;
 }
 
+.btn-footer {
+    border-radius: 0;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-footer:hover {
+    background-color: #f7daae;
+    color: black;
+}
+
+
 .social-media-icons {
     display: flex;
     justify-content: flex-start;
+}
+.social-media-icons i{
+    color: #000000;
 }
 
 .social-media-icons a {

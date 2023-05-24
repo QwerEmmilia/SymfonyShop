@@ -8,7 +8,9 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
+
 // start the Stimulus application
 import './bootstrap';
+import 'slick-carousel';
 
 console.log('Hi! My name is app.js!');

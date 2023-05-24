@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {% include 'shop/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="slider-container">
+            <div class="thumbnail-images">
+                <img class="thumbnail" src="{{ goods.image }}" alt="Thumbnail 1">
+                <img class="thumbnail" src="{{ asset('img/5372n-03x-002-1-575375-2.jpg') }}" alt="Thumbnail 2">
+                <img class="thumbnail" src="{{ asset('img/5372n-03x-050-1-500745-8.jpg') }}" alt="Thumbnail 3">
+                <img class="thumbnail" src="{{ asset('img/5372n-03x-050-1-500745-8.jpg') }}" alt="Thumbnail 4">
+            </div>
+            <div class="product-details">
+                <div class="main-image">
+                    <img id="mainImage" src="{{ goods.image }}" alt="Main Image">
+                </div>
+            </div>
+            <div class="product-info">
+                <h2 class="product-title">{{ goods.name }}</h2>
+                <p class="product-price">{{ goods.price }} USD</p>
+
+                <div class="product-colors">
+                    <p>Колір</p>
+                    <button class="color-option active">
+                        <img src="{{ asset('img/output-onlinepngtools.png') }}" alt="Color 1" class="color-square">
+                    </button>
+                    <button class="color-option">
+                        <img src="{{ asset('img/output-onlinepngtools (1).png') }}" alt="Color 2" class="color-square">
+                    </button>
+                    <button class="color-option">
+                        <img src="{{ asset('img/output-onlinepngtools (2).png') }}" alt="Color 3" class="color-square">
+                    </button>
+                    <button class="color-option">
+                        <img src="{{ asset('img/output-onlinepngtools (2).png') }}" alt="Color 3" class="color-square">
+                    </button>
+                    <button class="color-option">
+                        <img src="{{ asset('img/output-onlinepngtools (2).png') }}" alt="Color 3" class="color-square">
+                    </button>
+                    <button class="color-option">
+                        <img src="{{ asset('img/output-onlinepngtools (2).png') }}" alt="Color 3" class="color-square">
+                    </button>
+                </div>
+                <div class="product-sizes">
+                    <p>Розмір</p>
+                    <div class="size-pill">S</div>
+                    <div class="size-pill">M</div>
+                    <div class="size-pill">L</div>
+                </div>
+                <div class="add-to-cart">
+                    <button class="add-to-cart-btn"><i class='bx bx-shopping-bag'></i> Додати у кошик</button>
+                </div>
+            </div>
+        </div>
+        <div class="additional-info">
+            <div class="description">
+                <h3 class="section-title">Опис</h3>
+                <div class="section-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="specs-reviews">
+                <h3 class="section-title">Склад і огляд</h3>
+                <div class="section-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container rm">
+        <h5 class="new-tmp">РЕКОМЕНДУЄМО</h5>
+        <div id="carouselSlideGoods" class="carousel">
+            {% for good in goodsBD %}
+                <a href="{{ path('goodsPage', {'id': good.id}) }}">
+                    <div class="carousel-slide">
+                        <div class="product-block">
+                            <img src="{{ good.image }}" alt="Top Rated Goods">
+                            <div class="name-product">{{ good.name }}</div>
+                            <p class="price">${{ good.price }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+
+            <button class="custom-prev-btn"><i class='bx bx-chevron-right bx-flip-horizontal'></i></button>
+            <button class="custom-next-btn"><i class='bx bx-chevron-right bx-flip-vertical'></i></button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
+    <script src="{{ asset('js/slick-1.8.1/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('js/goodsSlider.js') }}"></script>
+    <script src="{{ asset('js/activeColor.js') }}"></script>
+    <script src="{{ asset('js/activeSizes.js') }}"></script>
+    <script src="{{ asset('js/activeOpis.js') }}"></script>
+    <script src="{{ asset('js/slickTrack.js') }}"></script>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'shop/footer.html.twig' %}
+{% endblock %}

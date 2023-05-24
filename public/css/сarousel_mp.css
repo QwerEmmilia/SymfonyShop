@@ -1,0 +1,65 @@
+.new-tmp {
+margin-left: 10px;
+    color: rgb(0, 0, 0);
+
+}
+.carousel a {
+    text-decoration: none;
+}
+
+#carouselSlide {
+    margin-top: 10px;
+}
+
+.carousel-slide {
+    margin: 0 10px;
+}
+
+.carousel-slide .product-block {
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-slide .name-product {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+}
+
+.carousel-slide .price {
+    font-size: 13px;
+    color: black;
+}
+.carousel-slide .rating {
+    font-size: 13px;
+    color: black;
+    margin-bottom: 0;
+}
+
+.custom-prev-btn,
+.custom-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.41);
+    cursor: pointer;
+}
+
+.custom-prev-btn {
+    left: -40px;
+}
+
+.custom-next-btn {
+    right: -44px;
+}
+
+#top-rated-slider {
+    margin-top: 20px;
+}
